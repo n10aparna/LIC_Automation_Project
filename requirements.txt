@@ -1,0 +1,4 @@
+pandas~=2.3.3
+selenium~=4.41.0
+openpyxl
+
