@@ -2,17 +2,17 @@
 
 ## Overview
 
-This project automates LIC policy data fetching using Selenium and processes Excel records.
+This project automates LIC policy data fetching using Selenium and processes JSON records.
 
 It includes:
 
 * UI for input (file + retries + mode)
 * Automated chatbot interaction
-* Excel update with results
+* JSON update with results
 
 ---
 
-##  Setup Instructions
+## Setup Instructions
 
 ### 1. Install Python (3.10+ recommended)
 
@@ -44,7 +44,7 @@ pip install -r requirements.txt
 
 ---
 
-##  How to Run
+## How to Run
 
 ```bash
 python main.py
@@ -60,6 +60,21 @@ python main.py
 
 ---
 
+## Input Format (JSON)
+
+Example `input.json`:
+
+```json
+[
+  {
+    "Policy No.": "123456789",
+    "D.O.B.": "01-01-1990"
+  }
+]
+```
+
+---
+
 ## Built-in Libraries Used
 
 (No installation required)
@@ -71,24 +86,20 @@ python main.py
 
 ---
 
-##  Notes
+## Notes
 
 * Ensure Chrome browser is installed
 * Internet connection required
 * Do not close browser during execution
+* Date format in JSON should be **DD-MM-YYYY**
 
 ---
 
 ## ⚠️ Important Usage Instructions
 
-* 🚫 **Do NOT open the output file (`output.xlsx`) during execution**
-  Opening the file while the script is running may cause write conflicts or data corruption.
-
-* 👀 **If you need to view progress:**
-  Make a copy of the output file and open the copy instead.
 
 * 🔁 **If the script stops/crashes in between:**
-  Re-run the script using the existing `output.xlsx` as input.
+  Re-run the script using the existing `output.json` as input.
   The script is designed to resume processing based on the selected mode.
 
 * 💾 **All updates are saved in the output file only**
@@ -103,13 +114,13 @@ python main.py
 
 * 🔐 Before each run, the script automatically creates a backup of the existing output file.
 
-* 🕒 Backup files are saved with an incremental count (if duplicates) format:
+* 🕒 Backup files are saved with a timestamp format:
 
   ```
-  output_backup_{count}.xlsx
+  output_backup_YYYYMMDD_HHMMSS.json
   ```
 
-* 📂 All backups can be stored in the same directory or inside a `backups/` folder (if configured).
+* 📂 Backups are stored inside the `backups/` folder.
 
 * ⚠️ Backup files ensure that no data is lost if:
 
@@ -119,11 +130,10 @@ python main.py
 
 * ♻️ Multiple backups are maintained — **existing backups are NOT overwritten**
 
-* 🧹 (Optional) Old backups can be cleaned manually if storage becomes large
-
 ---
 
-##  Author
+## Author
+
 Automation Script for LIC Data Extraction
 
 ---
@@ -136,7 +146,7 @@ LIC_Automation_Project/
 ├── main.py              # Entry point
 ├── requirements.txt     # Dependencies
 ├── README.md
-├── output.xlsx          # Generated output
+├── output.json          # Generated output
 │
 ├── UI/
 │   └── ui_input.py      # UI logic
@@ -144,5 +154,5 @@ LIC_Automation_Project/
 ├── backups/             # Backup files
 │
 └── data/
-    └── sample_input.xlsx
+    └── sample_input.json
 ```

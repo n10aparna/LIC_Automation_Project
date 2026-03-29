@@ -6,7 +6,7 @@ def get_user_inputs():
 
     def browse_file():
         file_path = filedialog.askopenfilename(
-            filetypes=[("Excel Files", "*.xlsx *.xls")]
+            filetypes=[("JSON Files", "*.json")]
         )
         file_entry.delete(0, tk.END)
         file_entry.insert(0, file_path)
