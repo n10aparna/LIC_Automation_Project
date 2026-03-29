@@ -121,20 +121,28 @@ python main.py
 
 * 🧹 (Optional) Old backups can be cleaned manually if storage becomes large
 
+---
 
 ##  Author
-
 Automation Script for LIC Data Extraction
-LIC_Automation_Project.zip
+
+---
+
+## 📁 Project Structure
+
+```
+LIC_Automation_Project/
 │
-├── main.py
-├── requirements.txt
+├── main.py              # Entry point
+├── requirements.txt     # Dependencies
 ├── README.md
-├── output.xlsx            
+├── output.xlsx          # Generated output
 │
 ├── UI/
-│   └── ui_input.py
+│   └── ui_input.py      # UI logic
 │
-├── backups/               
+├── backups/             # Backup files
 │
-└── data/sample_input.xlsx      
+└── data/
+    └── sample_input.xlsx
+```
